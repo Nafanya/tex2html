@@ -102,7 +102,7 @@ public class Html extends TexBaseListener {
         super.enterUnit(ctx);
 
         if (ctx.text() != null) {
-            buffer.append(ctx.text().words().stream().map(RuleContext::getText).collect(Collectors.joining(" ")) + " ");
+            buffer.append(ctx.text().words().stream().map(RuleContext::getText).collect(Collectors.joining(" "))).append(" ");
         }
     }
 
@@ -110,19 +110,16 @@ public class Html extends TexBaseListener {
     public void enterMathexpr(TexParser.MathexprContext ctx) {
         super.enterMathexpr(ctx);
 
-        buffer.append(ctx.getText());
+        buffer.append(escape(ctx.getText())).append(" ");
     }
 
     private String escape(String token) {
-        System.out.println(token);
-        switch (token) {
-            case "\\le": return "&le;";
-            case "\\ge": return "&ge;";
-            case "\\ne": return "&ne;";
-            case "<":    return "&lt;";
-            case ">":    return "&gt;";
-            default:     return token;
-        }
+        return token
+                .replace("\\le", "&le;")
+                .replace("\\ge", "&ge;")
+                .replace("\\ne", "&ne;")
+                .replace("<", "&lt;")
+                .replace(">", "&gt;");
     }
 
     private void startBlock(TexParser.CommandContext ctx) {

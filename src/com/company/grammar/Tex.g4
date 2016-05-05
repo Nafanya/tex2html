@@ -21,7 +21,7 @@ math: '{' math* '}'
     | function
     | symbols
     | math OPERATION math
-    | math REL math
+    | math rel math
     | math SUB math
     | math SUP math
     ;
@@ -29,11 +29,12 @@ math: '{' math* '}'
 
 OPERATION: '*' | '/' | '+' | '-';
 
-function: lim | sum | frac;
+function: lim | sum | frac | integral;
 
 lim: LIM SUB '{' math* '}' '{' math* '}';
 sum: SUM SUB '{' math* '}' '^' '{' math* '}' '{' math* '}';
 frac: FRAC '{' math* '}' '{' math* '}';
+integral: INT SUB '{' math* '}' '^' '{' math* '}';
 
 symbols: TO | INFTY | PI;
 
@@ -49,12 +50,14 @@ PREP: [,.:;!?%];
 SPACE: [\t\n\r ]+ -> skip;
 SUB: '_';
 SUP: '^';
+rel: REL;
 REL: '<' | '>' | '=' | '\\le' | '\\ge' | '\\ne';
 BACKSLASH: '\\';
 
 SUM: '\\sum';
 FRAC: '\\frac';
 SQRT: '\\sqrt';
+INT: '\\int';
 LIM: '\\lim';
 TO: '\\to';
 PI: '\\pi';

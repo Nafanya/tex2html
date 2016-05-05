@@ -47,11 +47,10 @@ public class HtmlConst {
                     "    <section class=\"header\">\n" +
                     "      <h2 class=\"title\">%s</h2>\n" +
                     "      <h5>%s</h5>\n" +
-                    "      <h6>%s</h6>\n" +
                     "    </section>\n";
 
     public static String getDocumentStart(String title, String description, String author) {
-        return String.format(DOCBEGIN, title, description, author, title, description, author);
+        return String.format(DOCBEGIN, title, description, author, title, author);
     }
 
 
