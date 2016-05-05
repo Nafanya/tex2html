@@ -118,6 +118,7 @@ public class Html extends TexBaseListener {
                 .replace("\\le", "&le;")
                 .replace("\\ge", "&ge;")
                 .replace("\\ne", "&ne;")
+                .replace("\\min", "\\min ")
                 .replace("<", "&lt;")
                 .replace(">", "&gt;");
     }

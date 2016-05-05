@@ -29,12 +29,15 @@ math: '{' math* '}'
 
 OPERATION: '*' | '/' | '+' | '-';
 
-function: lim | sum | frac | integral;
+function: lim | sum | frac | integral | min;
+
+min: MIN math* | MIN SUB '{' math* '}' math*;
 
 lim: LIM SUB '{' math* '}' '{' math* '}';
-sum: SUM SUB '{' math* '}' '^' '{' math* '}' '{' math* '}';
 frac: FRAC '{' math* '}' '{' math* '}';
-integral: INT SUB '{' math* '}' '^' '{' math* '}';
+
+sum: SUM LIMITS? SUB '{' math* '}' '^' '{' math* '}' '{' math* '}';
+integral: INT LIMITS? SUB '{' math* '}' '^' '{' math* '}';
 
 symbols: TO | INFTY | PI;
 
@@ -62,3 +65,5 @@ LIM: '\\lim';
 TO: '\\to';
 PI: '\\pi';
 INFTY: '\\infty';
+LIMITS: '\\limits';
+MIN: '\\min';
