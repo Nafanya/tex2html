@@ -1,10 +1,5 @@
-package com.company;
-
-import com.company.grammar.TexBaseListener;
-import com.company.grammar.TexParser;
 import org.antlr.v4.runtime.RuleContext;
 
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 

@@ -1,0 +1,154 @@
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Лабораторная работа 3. Использование автоматичиских генераторов и анализаторов ANTLR и Bison</title>
+  <meta name="description" content="Лабораторная работа 3. Использование автоматичиских генераторов и анализаторов ANTLR и Bison">
+  <meta name="author" content="Никита Ященко, М3338">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+  <link rel="stylesheet" href="css/custom.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$']]}});
+  </script>
+  <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</head>
+<body>  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <section class="header">
+      <h2 class="title">Лабораторная работа 3. Использование автоматичиских генераторов и анализаторов ANTLR и Bison</h2>
+      <h5>Никита Ященко, М3338</h5>
+    </section>
+    <div class="docs-section">
+      <h6 class="docs-header">Задание</h6>
+      <div class="docs-subsection">
+        <h6 class="docs-subheader">Вариант 8</h6>
+        <p>
+          Выберите подмножетсво TeX и напишите его конвертор в HTML. 
+        </p>
+        <p>
+          При необходимости используйте MathML. 
+        </p>
+      </div>
+      <div class="docs-subsection">
+        <h6 class="docs-subheader">Пример</h6>
+          <pre><code>
+            $a_i=b_i+x^2$           </code></pre>
+        <p>
+          Или целиком этот документ. 
+        </p>
+      </div>
+    </div>
+    <div class="docs-section">
+      <h6 class="docs-header">Ход работы</h6>
+      <p>
+        Выбрано подмножество TeX, включающее в себя функции, секции, блоки и немного математических операций. 
+      </p>
+      <p>
+        Для отображения математических символов и операций ипользуется MathJax. 
+      </p>
+    </div>
+    <div class="docs-section">
+      <h6 class="docs-header">Примеры</h6>
+      <div class="docs-subsection">
+        <h6 class="docs-subheader">Числа и переменные</h6>
+        <p>
+          $a$ , $2$ , $\pi$ 
+        </p>
+      </div>
+      <div class="docs-subsection">
+        <h6 class="docs-subheader">Операции</h6>
+        <p>
+          $2+2*2$ , $1+2*3/4$ , $a+b*c$ 
+        </p>
+      </div>
+      <div class="docs-subsection">
+        <h6 class="docs-subheader">Отношения</h6>
+        <p>
+          $a&lt;b&le;c$ 
+        </p>
+        <p>
+          $d=e&ne;f$ 
+        </p>
+        <p>
+          $g&gt;h&ge;i$ 
+        </p>
+      </div>
+      <div class="docs-subsection">
+        <h6 class="docs-subheader">Математика</h6>
+        <p>
+          Add $a$ squared and $b$ squared to get $c$ squared. 
+        </p>
+        <p>
+          Or, using a more mathematical approach: $a^2+b^{2}=c^2$ . 
+        </p>
+        <p>
+          100 $m^{3}$ of water. 
+        </p>
+        <p>
+          $x_{1}+x_{1}=2*x_{1}$ 
+        </p>
+        <p>
+          $\lim_{x\to6}{x}=6$ 
+        </p>
+        <p>
+          $\lim_{n\to\infty}{1/n}=\frac{\pi^2}{6}*0$ 
+        </p>
+        <p>
+          $\sum_{k=1}^{5}{k}=\frac{60}{2}/2$ 
+        </p>
+        <p>
+          ${5^{\frac{1}{x}}=A}_{y}-\frac{1}{2+\frac{3}{4+\frac{5}{c}}}+\sum_{i=1}^{5}{i^{2*i}}$ 
+        </p>
+        <p>
+          $\int_{\frac{\pi}{2}}^{\infty}$ 
+        </p>
+      </div>
+      <div class="docs-subsection">
+        <h6 class="docs-subheader">Дополнительное задание</h6>
+        <p>
+          Минимум 
+        </p>
+        <p>
+          $\min X$ 
+        </p>
+        <p>
+          Минимум с нижним индексом 
+        </p>
+        <p>
+          $\min _{subscript}x$ 
+        </p>
+        <p>
+          limits для суммы и интеграла 
+        </p>
+        <p>
+          $\sum\limits_{k=1}^{5}{k}=15$ 
+        </p>
+        <p>
+          $\int\limits_{\frac{\pi}{2}}^{\infty}$ 
+        </p>
+        <!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
